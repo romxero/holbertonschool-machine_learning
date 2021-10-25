@@ -4,8 +4,6 @@
 
 #camel case notation
 
-
-
 def mean_cov(matrix): 
     if matrix is 0:
         return -1 #short circuit
