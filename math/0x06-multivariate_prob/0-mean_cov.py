@@ -10,10 +10,6 @@ def mean_cov(matrix):
     import numpy as np
     npInternalArray = np.array(matrix) #grab the numpy array
     internalMean = np.mean(npInternalArray)
-
-
-    #retrun(np.cov(matrix))
-
     #manual calculation of covariant    
     for i in matrix:
 
