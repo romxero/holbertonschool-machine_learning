@@ -19,4 +19,15 @@ class Neuron:
             self.__A = 0
         except:
             print("An exception occurred")
+    @property
+    def W(self):
+        return self.__W
+
+    @property
+    def b(self):
+        return self.__b
+
+    @property
+    def A(self):
+        return self.__A
     # make sure to have thre variables here
