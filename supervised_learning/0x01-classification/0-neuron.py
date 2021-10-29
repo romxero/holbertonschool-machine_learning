@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
+import numpy as np 
 
 
 class Neuron:
-    import numpy as np 
     def __init__(self,nx):
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
