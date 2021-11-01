@@ -41,5 +41,7 @@ class Neuron:
             raise TypeError("Value X is supposed to be an numpy dimmensional array")
         if type(Y) is not np.ndarray:
             raise TypeError("Value Y is supposed to be an numpy dimmensional array")
-        internalVariable = -(sum(Y * np.log(A) +  np.log(1.0000001 - A)))/A.shape[1] #calculation should be ok 
+        internalVariable = Y * np.log(A) +  np.log(1.0000001 - A) #calculation should be ok 
+        internalVariable = np.sum(internalVariable)
+        internalVariable = -internalVariable/A.shape[1]
         return internalVariable #just return a value right now and fill in the variable later 
