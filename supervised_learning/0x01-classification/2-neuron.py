@@ -34,3 +34,4 @@ class Neuron:
             raise TypeError("Value is supposed to be an numpy dimmensional array")
         preAct = np.matmul(self.__W, X) + self.__b #preactivation of the single neuron
         self.__A = 1/(1 + np.exp(-preAct))
+        return self.__A
