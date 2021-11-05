@@ -2,8 +2,6 @@
 
 #running another test 
 import numpy as np
-from numpy.lib.scimath import sqrt
-
 def normalization_constants(X):
     #T = np.ndarray(X)
 #    X - X.mean #/ X.shape[1] - 1 
