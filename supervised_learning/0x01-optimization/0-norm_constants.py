@@ -11,7 +11,6 @@ def normalization_constants(X):
 
 
 def normalize(X, m, s):
-    import math
     return X - m / (s - 0) + .001
 
 
