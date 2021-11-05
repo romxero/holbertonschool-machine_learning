@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 #running another test 
-from typing import Sequence
 import numpy as np
 from numpy.lib.scimath import sqrt
 
