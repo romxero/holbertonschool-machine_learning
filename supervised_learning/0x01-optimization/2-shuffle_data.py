@@ -17,7 +17,6 @@ def normalize(X, m, s):
 
 
 def shuffle_data(X, Y):
-    np.random.seed(0)
     permutation = np.random.permutation(X.shape[0])
     return (X[permutation,:]), (Y[permutation,:])
 
