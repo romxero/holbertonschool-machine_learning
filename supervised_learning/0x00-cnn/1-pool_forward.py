@@ -1,16 +1,15 @@
+import numpy as np
+
 def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='max'):
     m, h_prev, w_prev, c_prev = A_prev.shape
     kh, kw, = kernel_shape[0], kernel_shape[1]
     sh, sw = stride[0], stride[1]
     ph = pw = 0
 
-#    ph = int (np.ceil(((h_prev -1 ) * sh + kh - h_prev / 2 )))
-#    pw = int (np.ceil(((w_prev -1 ) * sw + kw - w_prev / 2 )))
+    oh = int( ((h_prev - kh  ) / sh  ) + 1)
+    ow = int( ((w_prev  - kw  ) / sw  ) + 1)
 
-    oh = int( ((h_prev + 2 * ph - kh  ) / sh  ) + 1)
-    ow = int( ((w_prev + 2 * pw - kw  ) / sw  ) + 1)
-
-    output_dim = (m, oh, ow, c_new)
+    output_dim = (m, oh, ow, c_prev)
 
     conv = np.zeros(output_dim) #convolution return right here 
 
@@ -21,9 +20,10 @@ def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='max'):
       for j in range(ow):
         x = i * sh
         y = j * sw
-        M = padded_images[:, x:x + kh, y:y + kw, :]
-        for f in range(c_new):
-        conv[:,i,j,f] = np.tensordot(M,W[:,:,:,f,axes=3]) 
+        M = A_prev[:, x:x + kh, y:y + kw, :]
+        if mode == 'max':
+            conv[:,i,j,:] = np.max(M,axis=(1,2)) 
+        else:
+            conv[:,i,j,:] = np.max(M,axis=(1,2)) 
 
-   A = activation(conv + b)
-   return A #make sure to return A
+    return conv #make sure to return A
