@@ -3,6 +3,7 @@
 #testing the autoencoders right here 
 import tensorflow.keras as keras
 
+
 def autoencoder(input_dims, hidden_layers, latent_dims):
     #setting up the intiial tensors right here 
     inputEncoder = keras.Input(shape=(input_dims,))
@@ -23,7 +24,7 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
 
     #for this thing the hidden layer length must be minus 2 and then it is a tuple with other values (i.e. '-1').. 
 
-    for dec in range(1, len(hidden_layers) - 2, -1 ,-1 ):
+    for dec in range(1, len(hidden_layers) - 2, -1  ):
         decodedModelObj = keras.layers.Dense(hidden_layers[dec],activation='relu',)(decodedModelObj) #take the model and modify it recursively and multiply by encodedState 
 
 
@@ -41,5 +42,3 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
 
     #decoderState = 0#right here is TEMPORARY
     return encoderState, decoderState, auto
-
-#use pretty print to debug 
