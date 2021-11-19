@@ -1,10 +1,5 @@
 #!/usr/bin/env python3 
 
-def holbiPrint(dataObj):
-    #this is just to pretty print and remove 
-    import pprint as pp 
-    pp.pprint(dataObj)
-
 #testing the autoencoders right here 
 import tensorflow.keras as keras
 
