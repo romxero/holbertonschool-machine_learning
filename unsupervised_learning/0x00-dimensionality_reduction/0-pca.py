@@ -1,9 +1,9 @@
 #!/usr/bin/env python3 
-import numpy as np #import numpy in the function- not sure if check wants me to do this
 """
 PCA analysis for dimensionality reduction 
 """
 
+import numpy as np
 
 def pca(X, var=0.95):
     u,s, vh  = np.linalg.svd(X) #singulaur value decomposition returns u, s and vh
